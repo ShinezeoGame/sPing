@@ -14,7 +14,9 @@ val keystoreProperties = Properties().apply {
 
 android {
     namespace = "com.shinezeogame.sping"
-    compileSdk = flutter.compileSdkVersion
+    // 37 : exigé par flutter_local_notifications 23 et androidx.core 1.19 (ne change ni
+    // minSdk ni targetSdk, donc pas le comportement de l'application).
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
