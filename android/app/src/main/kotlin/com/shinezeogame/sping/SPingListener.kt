@@ -63,7 +63,7 @@ class SPingListener : NotificationListenerService() {
     }
 
     /** Notifications présentes en ce moment, pour un PC qui vient de se connecter. */
-    fun activeNotifications(): List<Map<String, Any?>> = try {
+    fun currentNotifications(): List<Map<String, Any?>> = try {
         activeNotifications?.mapNotNull { describe(it) } ?: emptyList()
     } catch (e: Exception) {
         emptyList()

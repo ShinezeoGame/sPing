@@ -40,7 +40,7 @@ object SPingEngine {
             when (call.method) {
                 "etat" -> result.success(status(app))
                 "nomAppareil" -> result.success(deviceName(app))
-                "actives" -> result.success(SPingListener.instance?.activeNotifications() ?: emptyList<Any>())
+                "actives" -> result.success(SPingListener.instance?.currentNotifications() ?: emptyList<Any>())
                 "repondre" -> {
                     val key = call.argument<String>("cle")
                     val text = call.argument<String>("texte")
