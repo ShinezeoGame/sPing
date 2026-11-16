@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fond du thème clair de l'application (voir lib/ui/theme.dart) ; la version
+         sombre est dans values-night. Évite tout flash de couleur au démarrage. -->
+    <color name="sping_background">#FFF5F0E8</color>
+    <!-- Barres système : icônes sombres sur fond clair. -->
+    <bool name="sping_light_bars">true</bool>
+    <!-- Fond de l'icône de l'application : même orange que le logo (tools/logo/generer_logo.py). -->
+    <color name="sping_icon_background">#FFC2571A</color>
+</resources>

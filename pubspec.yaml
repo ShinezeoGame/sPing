@@ -1,0 +1,44 @@
+name: sping
+description: "sPing — les notifications du téléphone sur le PC"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # X25519, HKDF et AES-GCM, en Dart : le même code chiffre sur Android et sur Windows.
+  cryptography: ^2.9.0
+  shared_preferences: ^2.5.6
+  # Clé privée et appairages : Keystore sur Android, DPAPI sur Windows.
+  flutter_secure_storage: ^10.3.4
+  # Notifications Windows, avec un champ de réponse.
+  flutter_local_notifications: ^23.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/branding/
+
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit_300Light.ttf
+          weight: 300
+        - asset: assets/fonts/Outfit_400Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Outfit_500Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Outfit_600SemiBold.ttf
+          weight: 600

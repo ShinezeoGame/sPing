@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+ : écran de démarrage système, clair ou sombre selon le téléphone. -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowSplashScreenBackground">@color/sping_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="android:statusBarColor">@color/sping_background</item>
+        <item name="android:navigationBarColor">@color/sping_background</item>
+        <item name="android:windowLightStatusBar">@bool/sping_light_bars</item>
+    </style>
+    <!-- Thème de la fenêtre derrière l'interface Flutter. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@color/sping_background</item>
+        <item name="android:statusBarColor">@color/sping_background</item>
+        <item name="android:navigationBarColor">@color/sping_background</item>
+        <item name="android:windowLightStatusBar">@bool/sping_light_bars</item>
+    </style>
+</resources>
