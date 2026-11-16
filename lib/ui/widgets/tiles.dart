@@ -194,7 +194,6 @@ class MessageBanner extends StatelessWidget {
               IconButton(
                 onPressed: onClose,
                 tooltip: 'Fermer',
-                visualDensity: VisualDensity.compact,
                 icon: Icon(Icons.close_rounded, size: 18, color: c.textMuted),
               )
             else

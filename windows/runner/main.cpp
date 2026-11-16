@@ -15,6 +15,22 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
     CreateAndAttachConsole();
   }
 
+  // Une seule copie de sPing à la fois : une deuxième ouverture (raccourci, clic sur une
+  // notification Windows) montre la fenêtre de la première, puis s'arrête.
+  HANDLE instance_mutex =
+      ::CreateMutexW(nullptr, TRUE, L"Local\\sPing-ShinezeoGame-instance");
+  if (instance_mutex && ::GetLastError() == ERROR_ALREADY_EXISTS) {
+    HWND existing = ::FindWindowW(L"FLUTTER_RUNNER_WIN32_WINDOW", L"sPing");
+    if (existing) {
+      ::AllowSetForegroundWindow(ASFW_ANY);
+      ::PostMessageW(existing, kShowMessage, 0, 0);
+    }
+    ::CloseHandle(instance_mutex);
+    return EXIT_SUCCESS;
+  }
+  // Lancé avec Windows (clé « Run ») : démarre caché dans la zone de notification.
+  const bool start_hidden = ::wcsstr(::GetCommandLineW(), L"--demarrage") != nullptr;
+
   // Initialize COM, so that it is available for use in the library and/or
   // plugins.
   ::CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
@@ -26,7 +42,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
 
   project.set_dart_entrypoint_arguments(std::move(command_line_arguments));
 
-  FlutterWindow window(project);
+  FlutterWindow window(project, start_hidden);
 
   // Fenêtre étroite, comme sur le téléphone, calée à droite de l'écran principal et
   // centrée en hauteur. Les dimensions sont en pixels logiques : Win32Window
@@ -56,5 +72,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   }
 
   ::CoUninitialize();
+  if (instance_mutex) ::CloseHandle(instance_mutex);
   return EXIT_SUCCESS;
 }

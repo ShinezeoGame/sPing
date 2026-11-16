@@ -1,6 +1,6 @@
 ; Installateur Windows de sPing (Inno Setup 6).
 ;
-; Compilé par .github/workflows/build-windows.yml une fois l'application assemblée dans
+; Compilé par .github/workflows/build.yml une fois l'application assemblée dans
 ; build\windows\x64\runner\Release :
 ;
 ;     ISCC.exe /DAppVersion=1.0.12 tools\installer\sping.iss
@@ -50,3 +50,7 @@ Name: "{autodesktop}\sPing"; Filename: "{app}\sping.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\sping.exe"; Description: "{cm:LaunchProgram,sPing}"; Flags: nowait postinstall skipifsilent
+
+[Registry]
+; « Démarrer avec Windows » (réglage de sPing) : retiré à la désinstallation.
+Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: none; ValueName: "sPing"; Flags: uninsdeletevalue dontcreatekey
