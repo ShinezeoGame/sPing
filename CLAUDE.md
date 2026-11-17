@@ -51,6 +51,8 @@
   l'application Windows (`sping-windows` : installateur Inno Setup `tools/installer/sping.iss`
   et archive), lance l'exécutable Windows (fenêtre, écoute UDP 47874, copie unique,
   fermeture). La Release n'est publiée que sur `main` ou à la demande.
+  APK signé avec la clé personnelle de sPing (secrets du dépôt) : ne jamais la remplacer, sinon
+  les mises à jour ne s'installent plus par-dessus.
 - Jamais essayé sur un vrai téléphone ni sur un vrai Windows au moment de l'écriture : le
   Kotlin, le runner C++ et les notifications Windows ne sont vérifiés que par la CI. Le
   conteneur de développement n'a pas de SDK Android (dl.google.com y est bloqué).

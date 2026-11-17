@@ -82,9 +82,10 @@ flutter run -d windows
 - `.github/workflows/build.yml` teste, compile l'APK et l'application Windows (qu'il lance
   pour de bon : fenêtre, écoute du réseau, copie unique, fermeture), et publie la version à
   chaque envoi sur `main` ou à la demande (bouton « Run workflow », case « Publier »).
-- Clé de signature Android (facultative, pour que les mises à jour s'installent par-dessus
-  l'ancienne version) : secrets `ANDROID_KEYSTORE_BASE64` et `ANDROID_KEYSTORE_PASSWORD`
-  du dépôt, comme pour sDash et sDrop.
+- Clé de signature Android : secrets `ANDROID_KEYSTORE_BASE64` et `ANDROID_KEYSTORE_PASSWORD`
+  du dépôt (clé propre à sPing, alias `sping`, en place depuis la version suivant la 1.0.4).
+  Les mises à jour s'installent ainsi par-dessus l'ancienne version. Sans ces secrets, la CI
+  signe avec une clé de debug.
 
 ### Ce qui n'est vérifié que par la compilation
 
