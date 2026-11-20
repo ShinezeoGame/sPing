@@ -51,6 +51,8 @@
   l'application Windows (`sping-windows` : installateur Inno Setup `tools/installer/sping.iss`
   et archive), lance l'exécutable Windows (fenêtre, écoute UDP 47874, copie unique,
   fermeture). La Release n'est publiée que sur `main` ou à la demande.
+  Une modification de documentation seule (`*.md`, `docs/`, `tools/logo/`) ne relance pas la CI
+  et ne publie donc pas de version.
   APK signé avec la clé personnelle de sPing (secrets du dépôt) : ne jamais la remplacer, sinon
   les mises à jour ne s'installent plus par-dessus.
 - Jamais essayé sur un vrai téléphone ni sur un vrai Windows au moment de l'écriture : le
@@ -60,6 +62,7 @@
   bouts ronds, dessin **centré** (une cloche pour sPing), **point ambre posé ensuite dans
   l'angle en haut à droite**, toujours au même endroit et de la même taille (ne jamais
   décaler le dessin pour lui faire de la place). Source : `tools/logo/generer_logo.py`
-  (identique dans les dépôts de sPack, seule `APPLI_DU_DEPOT` diffère) → `docs/logo/*.svg`,
+  (identique dans tous les dépôts de sPack, seule `APPLI_DU_DEPOT` diffère ; le recopier
+  dans les autres après chaque modification) → `docs/logo/*.svg`,
   puis `tools/logo/exporter.py` → PNG, icône Windows et icônes Android. Le fond de l'icône
   adaptative Android est la couleur `sping_icon_background` (`values/colors.xml`).

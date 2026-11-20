@@ -3,6 +3,11 @@ name: Construire sPing
 on:
   push:
     branches: [main, 'claude/**']
+    # La documentation seule ne relance pas la compilation (ni de nouvelle version).
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'tools/logo/**'
   pull_request:
   workflow_dispatch:
     inputs:

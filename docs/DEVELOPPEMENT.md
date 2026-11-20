@@ -96,13 +96,17 @@ vérifiés que par la CI (compilation, et lancement de l'application Windows).
 
 ## Logo
 
-sPing partage sa marque avec sDash, sPhone et sDrop : le même carré orange, le même trait
-clair, et le même point ambre, toujours au même endroit. Seul le dessin change — ici une
+sPing partage sa marque avec les autres applications de sPack (sDash, sPhone, sDrop, sWatt,
+sCam, sBackup) : le même carré orange, le même trait clair, et le même point ambre, toujours au
+même endroit. Seul le dessin change — ici une
 cloche, centrée dans le carré ; le point ambre, posé ensuite dans l'angle, est la lumière de
 la notification.
 
+![La marque sPack : le S et les applications de la famille](logo/presentation.jpg)
+
 Les sources vectorielles sont dans `docs/logo/` ;
-`tools/logo/generer_logo.py` les produit, `tools/logo/exporter.py` en tire les PNG et les
+`tools/logo/generer_logo.py` (identique dans tous les dépôts de sPack, seule `APPLI_DU_DEPOT`
+diffère) les produit, `tools/logo/exporter.py` en tire les PNG et les
 icônes Windows et Android. Les icônes de la famille sPack (`docs/logo/famille/`) sont
 produites par le même générateur, puis rendues en PNG 192 × 192.
 
